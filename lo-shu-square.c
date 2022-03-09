@@ -92,36 +92,25 @@ bool loShu(int array[][SIZE]){
         diagSum2 = 0;
         for(int col = 0; col < SIZE; col++ ){
             if (row == 0){
-                target += array[row][col];
-                
+                target += array[row][col];     
             }
-
+            colSum += array[col][row];
+            rowSum += array[row][col];
             if (row == 1){
                 diagSum1 += array[col][col];
                 diagSum2 += array[SIZE -1 - col][col];
-                colSum += array[col][row];
-                rowSum += array[row][col];
-               
 
             }
-            else{
-            colSum += array[col][row];
-            rowSum += array[row][col];
-            diagSum1 = colSum;
-            diagSum2 = rowSum;
-            }
-
-         
+            else{    //Assumtion when we dont check diagonals
+                diagSum1 = colSum;
+                diagSum2 = rowSum;
+            }   
         }
 
         //printf("Target:%d  row:%d  col:%d  d1:%d  d2:%d \n", target, rowSum, colSum, diagSum1,diagSum2);
         if (target != rowSum || target != colSum || target != diagSum1 || target != diagSum2){
             return false;
-        }
-
-
-
-        
+        }   
     }
 
     return true;
