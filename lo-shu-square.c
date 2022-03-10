@@ -104,7 +104,7 @@ bool loShu(int array[][SIZE]){
         if(row == 1 && (target != rowSum || target != colSum || target != diagSum1 || target != diagSum2)){ 
             return false;
         }  
-        else if ((target != rowSum || target != colSum)){
+        else if (target != rowSum || target != colSum){
             return false;   
         }  
     }
